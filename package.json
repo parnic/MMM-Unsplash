@@ -1,0 +1,11 @@
+{
+  "name": "magic-mirror-module-unsplash",
+  "version": "1.0.0",
+  "description": "Display images from Unsplash collections",
+  "main": "MMM-Unsplash.js",
+  "author": "Chris Pickett",
+  "repository": "https://github.com/parnic/MMM-Unsplash.git",
+  "license": "MIT",
+  "dependencies": {
+  }
+}
