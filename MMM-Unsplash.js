@@ -6,7 +6,8 @@ Module.register("MMM-Unsplash", {
 		height: 1920,
 		orientation: "portrait",
 		apiKey: "",
-		updateInterval: 1800
+		updateInterval: 1800,
+		divName: "mmm-unsplash-placeholder"
 	},
 
 	start: function() {
@@ -27,16 +28,16 @@ Module.register("MMM-Unsplash", {
 		req.addEventListener("load", function() {
 			if (this.status == 200) {
 				var obj = JSON.parse(this.responseText)
-				var img1 = document.getElementById("mmm-unsplash-placeholder1")
-				var img2 = document.getElementById("mmm-unsplash-placeholder2")
+				var img1 = document.getElementById(self.config.divName + "1")
+				var img2 = document.getElementById(self.config.divName + "2")
 
 				img1.addEventListener("load", function() {
 					fade(img1, self.config.opacity, function() {
-						img1.id = "mmm-unsplash-placeholder2"
+						img1.id = self.config.divName + "2"
 					})
 
 					fade(img2, 0, function() {
-						img2.id = "mmm-unsplash-placeholder1"
+						img2.id = self.config.divName + "1"
 					})
 				})
 
@@ -56,7 +57,7 @@ Module.register("MMM-Unsplash", {
 
 	getDom: function() {
 		var wrapper = document.createElement("div")
-		wrapper.innerHTML = "<img id=\"mmm-unsplash-placeholder1\" style=\"opacity: 0; position: absolute; top: 0\" /><img id=\"mmm-unsplash-placeholder2\" style=\"opacity: 0; position: absolute; top: 0\" />"
+		wrapper.innerHTML = "<img id=\"" + this.config.divName + "1\" style=\"opacity: 0; position: absolute; top: 0\" /><img id=\"" + this.config.divName + "2\" style=\"opacity: 0; position: absolute; top: 0\" />"
 		return wrapper
 	}
 })
