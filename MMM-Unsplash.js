@@ -41,7 +41,7 @@ Module.register("MMM-Unsplash", {
 					})
 				})
 
-				img1.src = obj.urls.custom
+				img1.src = obj.urls.raw + "&w=" + self.config.width
 			}
 		})
 
