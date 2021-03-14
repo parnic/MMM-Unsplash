@@ -20,8 +20,6 @@ Module.register("MMM-Unsplash", {
 		var req = new XMLHttpRequest()
 		var params = {
 			collections: self.config.collections,
-			w: self.config.width,
-			h: self.config.height,
 			orientation: self.config.orientation,
 		}
 
@@ -41,7 +39,7 @@ Module.register("MMM-Unsplash", {
 					})
 				})
 
-				img1.src = obj.urls.raw + "&w=" + self.config.width
+				img1.src = obj.urls.raw + "&w=" + self.config.width + "&h=" + self.config.height + "&fit=crop"
 			}
 		})
 
