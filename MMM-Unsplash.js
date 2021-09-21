@@ -7,7 +7,8 @@ Module.register("MMM-Unsplash", {
 		orientation: "portrait",
 		apiKey: "",
 		updateInterval: 1800,
-		divName: "mmm-unsplash-placeholder"
+		divName: "mmm-unsplash-placeholder",
+		showDescription: false,
 	},
 
 	start: function() {
@@ -40,6 +41,21 @@ Module.register("MMM-Unsplash", {
 				})
 
 				img1.src = obj.urls.raw + "&w=" + self.config.width + "&h=" + self.config.height + "&fit=crop"
+
+				if (self.config.showDescription) {
+					const descElement = document.getElementById("mmm-unsplash-description");
+
+					if (obj.description && obj.description.length > 0) {
+						descElement.innerHTML += obj.description;
+					}
+
+					if (obj.location.name && obj.location.name > 0) {
+						if (obj.description && obj.description.length > 0) {
+							descElement.innerHTML += "<br>";
+						}
+						descElement.innerHTML += obj.location.name;
+					}
+				}
 			}
 		})
 
@@ -56,6 +72,30 @@ Module.register("MMM-Unsplash", {
 	getDom: function() {
 		var wrapper = document.createElement("div")
 		wrapper.innerHTML = "<img id=\"" + this.config.divName + "1\" style=\"opacity: 0; position: absolute; top: 0\" /><img id=\"" + this.config.divName + "2\" style=\"opacity: 0; position: absolute; top: 0\" />"
+
+		if (this.config.showDescription) {
+			const div = document.createElement("div");
+			div.style = "max-width: 640px; margin: 60px; bottom: 0px; right: 0px; position: absolute; text-align: right;";
+
+			var sTitle = document.createElement("p");
+			sTitle.style = "margin: 0; padding: 0; line-height: 1;";
+			sTitle.innerHTML = "PHOTO DESCRIPTION";
+			sTitle.className = "xsmall";
+
+			var divider = document.createElement("hr");
+			divider.style = "margin: 0px 0px 4px; padding: 0; border-color: rgba(255, 255, 255, 0.6);";
+
+			var desc = document.createElement("p");
+			desc.style = "margin: 0; padding: 0; line-height: 1; text-overflow: ellipsis;";
+			desc.id = "mmm-unsplash-description";
+			desc.className = "small light bright";
+
+			div.appendChild(sTitle);
+			div.appendChild(divider);
+			div.appendChild(desc);
+
+			wrapper.appendChild(div);
+		}
 		return wrapper
 	}
 })
