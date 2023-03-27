@@ -71,11 +71,11 @@ Module.register("MMM-Unsplash", {
 
 	getDom: function() {
 		var wrapper = document.createElement("div")
-		wrapper.innerHTML = "<img id=\"" + this.config.divName + "1\" style=\"opacity: 0; position: absolute; top: 0\" /><img id=\"" + this.config.divName + "2\" style=\"opacity: 0; position: absolute; top: 0\" />"
+		wrapper.innerHTML = "<img id=\"" + this.config.divName + "1\" style=\"opacity: 0; width:100%; position: absolute; top: 0\" /><img id=\"" + this.config.divName + "2\" style=\"opacity: 0; position: absolute; top: 0\" />"
 
 		if (this.config.showDescription) {
 			const div = document.createElement("div");
-			div.style = "max-width: 640px; margin: 60px; bottom: 0px; right: 0px; position: absolute; text-align: right;";
+			div.style = "max-width: 640px; margin: 60px; bottom: 0px; right: 0px; width:100%; position: absolute; text-align: right;";
 
 			var sTitle = document.createElement("p");
 			sTitle.style = "margin: 0; padding: 0; line-height: 1;";
