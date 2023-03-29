@@ -71,7 +71,7 @@ Module.register("MMM-Unsplash", {
 
 	getDom: function() {
 		var wrapper = document.createElement("div")
-		wrapper.innerHTML = "<img id=\"" + this.config.divName + "1\" style=\"opacity: 0; height:500%; width:100%; object-fit:cover; position: absolute; top: 0\" /><img id=\"" + this.config.divName + "2\" style=\"opacity: 0; height:100%; width:100%; object-fit:cover; position: absolute; top: 0\" />"
+		wrapper.innerHTML = "<img id=\"" + this.config.divName + "1\" style=\"opacity: 0; height:100%; width:100%; object-fit:cover; position: absolute; top: 0\" /><img id=\"" + this.config.divName + "2\" style=\"opacity: 0; height:100%; width:100%; object-fit:cover; position: absolute; top: 0\" />"
 
 		if (this.config.showDescription) {
 			const div = document.createElement("div");
