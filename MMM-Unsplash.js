@@ -75,7 +75,7 @@ Module.register("MMM-Unsplash", {
 
 		if (this.config.showDescription) {
 			const div = document.createElement("div");
-			div.style = "max-width: 640px; margin: 60px; bottom: 0px; right: 0px; width:100%; position: absolute; text-align: right;";
+			div.style = "max-width: 640px; margin: 60px; bottom: 0px; right: 0px; position: absolute; text-align: right;";
 
 			var sTitle = document.createElement("p");
 			sTitle.style = "margin: 0; padding: 0; line-height: 1;";
