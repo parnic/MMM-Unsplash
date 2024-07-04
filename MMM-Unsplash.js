@@ -9,6 +9,7 @@ Module.register("MMM-Unsplash", {
 		updateInterval: 1800,
 		divName: "mmm-unsplash-placeholder",
 		showDescription: false,
+		userPresenceAction: "none",
 	},
 
 	start: function() {
@@ -98,6 +99,17 @@ Module.register("MMM-Unsplash", {
 		}
 		return wrapper
 	}
+	notificationReceived: function(notification, payload, sender) {
+                var self = this;
+        
+                if (notification === "USER_PRESENCE") {
+                        if (self.config.userPresenceAction === "show") {
+                                payload ? self.show() : self.hide();
+                        } else if (self.config.userPresenceAction === "hide") {
+                                payload ? self.hide() : self.show();
+                        }
+                }
+        },
 })
 
 function formatParams( params ){
