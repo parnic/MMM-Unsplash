@@ -98,7 +98,7 @@ Module.register("MMM-Unsplash", {
 			wrapper.appendChild(div);
 		}
 		return wrapper
-	}
+	},
 	notificationReceived: function(notification, payload, sender) {
                 var self = this;
         
