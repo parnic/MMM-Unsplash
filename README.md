@@ -37,3 +37,5 @@ None!
 
 ## Special Thanks
 <a href="https://github.com/diego-vieira/MMM-RandomPhoto">MMM-RandomPhoto</a> for the inspiration. The core image update functionality is cribbed from this module.
+
+This is an extra line
