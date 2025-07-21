@@ -1,3 +1,5 @@
+// This is a test comment
+
 Module.register("MMM-Unsplash", {
 	defaults: {
 		opacity: 0.3,
